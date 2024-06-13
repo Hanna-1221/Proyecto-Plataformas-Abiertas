@@ -1,11 +1,3 @@
-# PlataformasAbiertas
-PlataformasAbiertas
-Es proyecto corresponde al desarrollo de una base de datos para el almacenamiento y gestion de ventas
-![imagen](https://github.com/SteffMadrigal/PlataformasAbiertas/assets/171535128/eef4c2ca-d3e1-40c0-bdf2-07999b3ff83b)
-La tabla marcas almacena las marcas de las distintas prendas
-La tabla prendas almacena la descripción de la prenda y la cantidad de stock
-La tabla ventas almacena las distintas ventas
-Integrantes: Steffani Maria Madrigal Solano y Johanna Machado Solano
 ----------CREACION DE LA BASE DE DATOS
 CREATE DATABASE LATIENDA;
 
@@ -65,3 +57,7 @@ CREATE OR REPLACE VIEW MARCAS_VENTAS AS SELECT DSC_MARCA FROM MARCAS WHERE IDE_M
 CREATE OR REPLACE VIEW VENTAS_STOCK AS SELECT DSC_PRENDA, MON_STOCK FROM PRENDAS WHERE IDE_PRENDA IN ( SELECT DISTINCT(P.IDE_PRENDA) FROM VENTAS V INNER JOIN PRENDAS P ON (P.IDE_PRENDA = V.IDE_PRENDA)); 
 
 CREATE OR REPLACE VIEW MARCAS_MAS_VENDIDAS AS SELECT M.DSC_MARCA, COUNT(*) AS TOTAL FROM VENTAS V INNER JOIN PRENDAS P ON (P.IDE_PRENDA = V.IDE_PRENDA) INNER JOIN MARCAS M ON (M.IDE_MARCA = P.IDE_MARCA) GROUP BY M.DSC_MARCA ORDER BY TOTAL DESC LIMIT 5; 
+
+
+
+
